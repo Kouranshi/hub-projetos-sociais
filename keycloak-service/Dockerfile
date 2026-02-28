@@ -12,4 +12,6 @@ ENV KC_HOSTNAME=${KC_HOSTNAME}
 ENV KEYCLOAK_ADMIN=admin
 ENV KEYCLOAK_ADMIN_PASSWORD=admin123
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start", "--optimized"]
+EXPOSE 8080
+
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev"]
