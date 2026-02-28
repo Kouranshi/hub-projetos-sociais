@@ -8,6 +8,9 @@ ENV KC_DB_PASSWORD=${KC_DB_PASSWORD}
 
 ENV KC_PROXY=edge
 
+# limitando memória pra não crashar
+ENV JAVA_OPTS="-Xms128m -Xmx256m"
+
 ENV KEYCLOAK_ADMIN=admin
 ENV KEYCLOAK_ADMIN_PASSWORD=admin123
 
