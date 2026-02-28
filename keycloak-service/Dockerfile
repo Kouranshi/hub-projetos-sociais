@@ -17,4 +17,4 @@ ENV JAVA_OPTS="-Xms128m -Xmx256m"
 
 EXPOSE 8080
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--http-enabled=true", "--hostname-strict=false"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--proxy=edge", "--hostname-strict=false"]
