@@ -14,8 +14,8 @@ public class SecurityConfig {
         http
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/public/**", "/actuator/health").permitAll()
-            .requestMatchers("/auth/cadastro").permitAll()
+            //.requestMatchers("/public/**", "/actuator/health").permitAll()
+            //.requestMatchers("/auth/cadastro").permitAll()
             .anyRequest().authenticated()
         )
         .oauth2ResourceServer(oauth ->
