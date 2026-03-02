@@ -8,6 +8,15 @@ spring:
     hibernate:
       ddl-auto: update
 
+  rabbitmq:
+    host: jackal-01.rmq.cloudamqp.com
+    port: 5671
+    username: eryopwyj
+    password: 77fCnOixGZNaxhM2Xz0hqD3_5msXvREa
+    virtual-host: eryopwyj
+    ssl:
+      enabled: true
+
   server:
     port: ${PORT:8080}
 
