@@ -2,6 +2,7 @@ package com.example.demo.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -15,7 +16,9 @@ public class SecurityConfig {
         http
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
-            .requestMatchers("/public/**", "/auth/cadastro/", "/auth/verificar-email").permitAll()
+            .requestMatchers("/public/**").permitAll()
+            .requestMatchers(HttpMethod.POST, "/auth/cadastro").permitAll()
+            .requestMatchers(HttpMethod.POST, "/auth/verificar-email").permitAll()
             .anyRequest().authenticated()
         )
         .oauth2ResourceServer(oauth -> oauth.jwt(Customizer.withDefaults()));
