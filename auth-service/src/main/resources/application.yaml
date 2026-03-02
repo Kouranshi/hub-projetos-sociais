@@ -8,7 +8,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          issuer-uri: https://keycloak-service-production-e99.up.railway.app/realms/hub-projetos-sociais
+          issuer-uri: https://keycloak-production-e966.up.railway.app/realms/hub-projetos-sociais
 
 keycloak:
   server-url: ${KEYCLOAK_SERVER_URL}
