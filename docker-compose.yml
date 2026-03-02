@@ -8,6 +8,7 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin
+      POSTGRES_DB: hub_auth
     ports:
       - "5432:5432"
     volumes:
@@ -40,15 +41,15 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/hub_auth
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: postgres
+      SPRING_DATASOURCE_PASSWORD: admin
 
       KEYCLOAK_SERVER_URL: http://keycloak:8080
-      KEYCLOAK_REALM: hub-social
+      KEYCLOAK_REALM: hub-projetos-sociais
       KEYCLOAK_CLIENT_ID: auth-service
       KEYCLOAK_CLIENT_SECRET: jgMCBkT0cYEEA4oVgInqDv2S86f2dAZa
 
     ports:
-      - "8081:8081"
+      - "8081:8080"
 
 volumes:
   postgres_data:
