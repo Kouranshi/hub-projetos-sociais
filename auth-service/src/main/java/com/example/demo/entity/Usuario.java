@@ -1,11 +1,14 @@
 package com.example.demo.entity;
 
+import java.time.LocalDateTime;
+
 import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
 @Table(name = "usuarios")
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -15,18 +18,15 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
     private String nome;
-
-    @Column(nullable = false, unique = true)
     private String email;
-
-    @Column(nullable = false)
     private String senha;
 
-    @Column(nullable = true)
-    private String emailToken;
+    private String codigoVerificacaoEmail;
+    private LocalDateTime expiracaoCodigoEmail;
 
-    @Column(nullable = false)
+    private String codigoResetSenha;
+    private LocalDateTime expiracaoCodigoResetSenha;
+
     private boolean emailVerificado;
 }

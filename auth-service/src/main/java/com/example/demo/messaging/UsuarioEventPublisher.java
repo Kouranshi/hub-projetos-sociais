@@ -13,17 +13,21 @@ public class UsuarioEventPublisher {
     
     private final RabbitTemplate rabbitTemplate;
 
-    public void enviarEmailVerificacao(String email, String token) {
-        Map<String, String> msg = Map.of(
-            "email", email,
-            "token", token
-        );
-
+    public void enviarCodigoEmail(String email, String codigo) {
         rabbitTemplate.convertAndSend(
-            RabbitConfig.EMAIL_EXCHANGE,
-            RabbitConfig.EMAIL_ROUTING,
-            msg
+            "usuario.email.verificacao",
+            Map.of("email", email, "codigo", codigo)
         );
     }
 
+    
+    public void enviarCodigoReset(String email, String codigo) {
+        rabbitTemplate.convertAndSend(
+            "usuario.reset.senha",
+            Map.of(
+                "email", email,
+                "codigo", codigo
+            )
+        );
+    }
 }
